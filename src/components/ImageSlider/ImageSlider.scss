@@ -1,0 +1,77 @@
+@use "./../../css/variables" as var;
+@use "sass:color";
+
+.slider-container {
+    width: 100%;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var.$box-shadow;
+    margin: 10px auto;
+
+    .slider-image {
+        width: 100%;
+        height: 650px;
+        object-fit: cover;
+    }
+
+    .slick-prev,
+    .slick-next {
+        height: 60px;
+        width: 30px;
+        // background-color: black;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: #333;
+        content: "";
+        position: absolute;
+        top: 50%;
+
+        width: 16px;
+        height: 16px;
+        border-top: 8px solid;
+        border-right: 8px solid;
+        border-color: #aaa #aaa transparent transparent;
+        border-radius: 4px;
+
+        // font-size: 0;
+        // line-height: 1;
+    }
+
+    .slick-prev:before {
+        right: 0;
+        transform: translate(0, -50%) rotate(-135deg);
+    }
+
+    .slick-next:before {
+        left: 0;
+        transform: translate(0, -50%) rotate(45deg);
+    }
+
+    .slick-dots li button:before {
+        font-size: 8px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .slider-container {
+        padding: 10px 10px 30px;
+        margin-bottom: 2rem;
+        .slider-image {
+            height: 400px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .slider-container {
+        padding: 5px 5px 25px;
+        margin-bottom: 2rem;
+        .slider-image {
+            height: 200px;
+        }
+    }
+}

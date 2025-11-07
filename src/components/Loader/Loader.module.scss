@@ -1,0 +1,18 @@
+@use "./../../css/variables" as *;
+@use "sass:color";
+
+.loaderContainer {
+    width: 100%;
+    height: 6px;
+    background-color: #e0e0e0 ;
+    overflow: hidden;
+    position: relative;
+    border-radius: 3px;
+
+    .loaderBar {
+        width: 30%;
+        height: 100%;
+        background-color: $bg-color-main;
+        border-radius: 3px;
+    }
+}

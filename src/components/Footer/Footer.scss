@@ -1,0 +1,70 @@
+@use "../../css/variables" as *;
+@use "sass:color";
+
+.footer {
+    background: $bg-color-footer;
+    color: #fff;
+    font-size: 0.95rem;
+    padding: 20px 60px;
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+
+    .footer-cc-name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.05rem;
+        font-weight: bold;
+    }
+
+    .footer-row {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 20px;
+        justify-content: space-between;
+        align-items: center;
+
+        .footer-column {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            text-align: left;
+
+            p {
+                a {
+                    color: #fff;
+                    &:hover {
+                        color: color.adjust($bg-color-main, $lightness: 45%, $space: hsl);;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        .footer-row {
+            justify-content: space-evenly;
+            .footer-column:nth-of-type(2) {
+                display: none;
+            }
+        }
+    }
+}
+@media screen and (max-width: 576px) {
+    .footer {
+        padding: 20px;
+        text-align: center;
+        .footer-row {
+            justify-content: center;
+            .footer-column {
+                text-align: center;
+            }
+            .footer-column:nth-of-type(1) {
+                display: none;
+            }
+        }
+    }
+}
+

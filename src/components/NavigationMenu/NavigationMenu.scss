@@ -1,0 +1,85 @@
+@use "../../css/variables" as *;
+
+nav {
+    background: $bg-color-navbar;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $nav-height;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+    .logo {
+        color: $text-navbar;
+        font-weight: 600;
+    }
+
+    .burger-btn {
+        display: none;
+        border: none;
+        background-color: transparent;
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 400;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .menu {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+
+        
+    }
+}
+
+/* Мобільна версія */
+@media screen and (max-width: 992px) {
+    nav {
+        .burger-btn {
+            display: block;
+        }
+
+        .menu {
+            display: flex;
+            flex-flow: column nowrap;
+            position: absolute;
+            top: $nav-height;
+            left: 0;
+            width: 100%;
+            background: $bg-color-navbar;
+            padding: 10px 0;
+            border-radius: 0 0 10px 10px;
+            // gap: 10px;
+            justify-content: center;
+            align-items: center;
+            // z-index: 1000;
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
+        }
+
+        .menu.active {
+            max-height: 1000px;
+            opacity: 1;
+            visibility: visible;
+
+        }
+
+        
+    }
+}
+

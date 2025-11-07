@@ -1,0 +1,44 @@
+@use "./../../css/variables" as *;
+@use "sass:color";
+
+.graduates {
+    @extend .default-container;
+    @include mobile;
+
+    h2 {
+        text-align: center;
+    }
+
+    h3 {
+        margin: 20px;
+        font-size: 1.3em;
+    }
+    .graduates-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .graduate-card {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+
+        h4 {
+            margin-bottom: 10px;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+
+            p {
+                color: $bg-color-main;
+                color: red;
+                font-weight: 600;
+            }
+        }
+    }
+}

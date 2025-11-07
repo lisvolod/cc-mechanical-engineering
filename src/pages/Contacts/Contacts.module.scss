@@ -1,0 +1,75 @@
+@use "./../../css/variables" as *;
+@use "sass:color";
+
+.contacts {
+    @extend .default-container;
+    @include mobile;
+
+    h1 {
+        text-align: center;
+    }
+    .cardsContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        row-gap: 20px;
+        column-gap: 60px;
+        padding: 20px;
+
+        .card {
+            @extend .shadowed-box;
+            padding: 30px 30px 30px 80px;
+            text-align: center;
+            position: relative;
+            transition: .5s;
+            
+            &:hover {
+                transform: translateY(-10px);
+     
+            }
+            .photo {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                border-radius: 50%;
+                box-shadow: 2px 4px 10px 2px rgba(0,0,0, 0.35);
+                position: absolute;
+                top: 50%;
+                left: -30px;
+                transition: 0.2s;
+                transform: translate(0, -50%);
+
+
+            }
+            
+            .name {
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: color.adjust($bg-color-main, $lightness: -5%, $space: hsl);
+            }
+            
+            .email, .phone {
+                font-size: 0.9rem;
+                color: #333;
+            }
+            
+            .email a, .phone a {
+                color: inherit;
+                text-decoration: none;
+            }
+            
+            .email a:hover, .phone a:hover {
+                text-decoration: underline;
+            }
+
+        }
+    }
+        
+
+
+
+
+}
+
+
+
+

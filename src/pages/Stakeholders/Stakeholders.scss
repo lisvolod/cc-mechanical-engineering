@@ -1,0 +1,27 @@
+@use "./../../css/variables" as *;
+@use "sass:color";
+
+.stakeholders {
+    @extend .default-container;
+    @include mobile;
+
+    h1 {
+        text-align: center;
+    }
+
+    h2, h3 {
+        margin-top: 30px;
+    }
+
+    p {
+        font-size: 1.1em;
+    }
+    ul {
+        padding-left: 40px;
+        font-size: 1.1em;
+    }
+
+    .event {
+        margin-bottom: 40px;
+    }
+}

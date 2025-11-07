@@ -1,0 +1,40 @@
+@use "./../../css/variables" as *;
+@use "sass:color";
+
+.qualification {
+    @extend .default-container;
+    @include mobile;
+
+    .intro {
+        font-size: 1.1em;
+    }
+
+    h2 {
+        text-align: center;
+        margin: 20px ;
+    }
+
+    p {
+        color: $text-color;
+        text-align: left;
+        padding: 10px 0;
+    }
+
+    h3 {
+        text-align: left;
+        margin: 10px 0;
+    }
+
+    .qualification-section {
+        @extend .shadowed-box;
+
+        h4 {
+            text-align: left;
+        }
+        ul {
+            padding: 0 40px;
+         }
+    }
+
+    
+}

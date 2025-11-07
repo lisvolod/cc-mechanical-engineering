@@ -1,0 +1,32 @@
+@use "./../../css/variables" as *;
+@use "sass:color";
+
+.resources {
+    @extend .default-container;
+    @include mobile;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+
+    }
+
+    .resource {
+        margin: 10px;
+        width: 100%;
+
+        h3 {
+            text-align: left;
+            margin: 20px 0;
+        }
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .resources {
+        padding: 10px;
+        width: calc(100% - 20px);
+        margin: 0;
+    }
+}

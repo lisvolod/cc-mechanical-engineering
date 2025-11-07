@@ -1,0 +1,9 @@
+@use "./../../css/variables" as *;
+@use "sass:color";
+
+.section-container {
+    @extend .default-container;
+    @include mobile;
+
+
+}

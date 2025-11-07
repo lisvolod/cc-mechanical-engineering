@@ -1,0 +1,78 @@
+@use "./../../css/variables" as *;
+@use "sass:color";
+
+.teams {
+    @extend .default-container;
+    @include mobile;
+
+    h2 {
+        text-align: center;
+    }
+
+    .team-grid {
+        display: flex;
+        flex-flow: row wrap;
+        row-gap: 30px;
+        column-gap: 30px;
+        
+        .team-card {
+            @extend .shadowed-box;
+            flex: calc(50% - 40px);
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            transition: all 0.3s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+            img {
+                width: 200px;
+                height: 200px;
+                object-position: center;
+                object-fit: cover;
+                border-radius: 50%;
+                box-shadow: 2px 4px 12px 2px rgba(0,0,0,0.5);
+                margin-top: -40px;
+                background-color: white;
+            }
+            h3 {
+                text-align: center;
+                margin: 10px;
+            }
+            p {
+                text-align: center;
+                margin: 5px;
+            }
+            ul {
+                padding: 0 60px;
+
+            }
+        }
+
+        .team-card:nth-of-type(1), .team-card:nth-of-type(2) {
+            margin-top: 60px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .teams {
+        .team-grid {
+            .team-card {
+                flex: 100%;
+               
+                img {
+                    width: 150px;
+                    height: 150px;
+                }
+            }
+
+            .team-card:nth-of-type(2) {
+                margin-top: 20px;
+            }
+        }
+    }
+    
+}

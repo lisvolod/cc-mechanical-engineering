@@ -1,0 +1,37 @@
+@use "./../../css/variables" as *;
+@use "sass:color";
+
+.links {
+    
+    margin: 20px;
+    
+    li {
+        margin: 5px 0;
+        
+        &::marker {
+            content: "\2714";
+            font-size: 1.3em;
+        }
+        
+        &:hover {
+            color: color.adjust($bg-color-main, $lightness: 10%, $space: hsl);
+            
+            a {
+                color: color.adjust($bg-color-main, $lightness: 10%, $space: hsl);
+            }
+        }
+
+        a {
+            color: color.adjust($bg-color-main, $lightness: -20%, $space: hsl);
+            font-size: 1.05em;
+            transition: .1s;
+            display: inline-block;
+            vertical-align: middle;
+            padding-left: 20px;
+
+            &:active {
+                color: red;
+            }
+        }
+    }
+}

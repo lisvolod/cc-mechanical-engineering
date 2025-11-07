@@ -1,0 +1,18 @@
+@use "./../../css/variables" as *;
+@use "sass:color";
+
+.achievements {
+    @extend .default-container;
+    @include mobile;
+
+    h1 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .info {
+        margin: 20px;
+        font-size: 1.05rem;
+    }
+}

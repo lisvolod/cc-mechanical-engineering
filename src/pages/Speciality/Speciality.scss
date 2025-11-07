@@ -1,0 +1,73 @@
+@use "./../../css/variables" as *;
+@use "sass:color";
+
+.speciality{
+    line-height: 1.6;
+    @extend .default-container;
+    @include mobile;
+    
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h1, h2 {
+        text-align: center;
+    }
+
+
+    p {
+        padding-top: 10px;
+        font-size: 1.1rem;
+    }
+
+    .summary-box, .footer-box {
+        font-size: 1.1rem;
+        margin: 10px 0 30px 0;
+
+        h3 {
+            padding: 20px 0;
+        }
+
+        ul {
+            line-height: 1.6;
+            padding-left: 40px;
+        }
+
+        p {
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+    }
+
+    section {
+        @extend .shadowed-box;
+        padding: 20px 40px;
+
+        h3 {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        ul {
+            line-height: 1.6;
+            list-style-type: none;
+           
+            ul {
+                margin-bottom: 10px;
+                padding-left: 20px;
+
+                li {
+                    &::marker {
+                        content: "✔";
+                        color: color.adjust($bg-color-main, $lightness: 0%, $space: hsl);
+                    }
+                    &::before {
+                        content: "";
+                        padding-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
