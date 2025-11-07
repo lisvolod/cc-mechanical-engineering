@@ -7,7 +7,7 @@ const Teams = () => {
   return (
     <section className="teams">
       <h2>Склад циклової комісії</h2>
-      {/* <div className="team-grid">
+      <div className="team-grid">
         {teamMembers.map((member, index) => (
           <div key={index} className="team-card">
             <img src={member.photo} alt={member.name} onError={(e) => e.target.src = '/images/team/default.jpg'} />
@@ -26,7 +26,7 @@ const Teams = () => {
             <p><strong>Категорія, звання:</strong> {member.category}</p>
           </div>
         ))}
-      </div> */}
+      </div>
     </section>
   );
 };

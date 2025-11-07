@@ -6,7 +6,7 @@ const Contacts = () => {
     return (
         <div className={styles.contacts}>
             <h1>Контакти викладачів</h1>
-            {/* <div className={styles.cardsContainer}>
+            <div className={styles.cardsContainer}>
             {teamMembers.map((member, index) => (
                 <div key={index} className={styles.card}>
                     <img src={member.photo} alt={member.name} className={styles.photo} />
@@ -23,7 +23,7 @@ const Contacts = () => {
                     )}
                 </div>
             ))}
-            </div> */}
+            </div>
             
         </div>
     );
