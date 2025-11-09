@@ -11,7 +11,7 @@ const teamMembers = [
     category:
       "Спеціаліст вищої категорії, викладач-методист, кандидат технічних наук, доцент, член ради ВГО «Асоціація працівників закладів фахової передвищої освіти».",
     photo: "/assets/images/teams/voloshyn.jpg",
-    email: "v.voloshyn@tk.te.ua"
+    email: "voloshyn@tk.te.ua"
   },
   {
     name: "Геник Ігор Степанович",
@@ -22,7 +22,7 @@ const teamMembers = [
     position: "Голова циклової комісії, викладач механічних дисциплін.",
     category: "Спеціаліст вищої категорії, кандидат технічних наук.",
     photo: "/assets/images/teams/genyk.jpg",
-    email: "i.henyk@tk.te.ua"
+    email: "inko_tihiy@tk.te.ua"
   },
   {
     name: "Гаврищук Ірина Василівна",
@@ -34,7 +34,7 @@ const teamMembers = [
     category:
       "Спеціаліст вищої категорії, викладач-методист, кандидат педагогічних наук.",
     photo: "/assets/images/teams/gavryschchuk.jpg",
-    email: "i.havryshchuk@tk.te.ua"
+    email: "irenter89@gmail.com"
   },
   {
     name: "Кобельник Оксана Степанівна",
@@ -45,7 +45,7 @@ const teamMembers = [
     position: "Викладач механічних дисциплін.",
     category: "Спеціаліст вищої категорії, кандидат технічних наук.",
     photo: "/assets/images/teams/kobelnyk.png",
-    email: "o.kobelnyk@tk.te.ua"
+    email: "oks.kobelnyk@gmail.com"
   },
   {
     name: "Кашуба Назар Петрович",
