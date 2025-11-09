@@ -148,26 +148,8 @@ const Speciality = () => {
         </ul>
       </div>
 
-      <h2>Компетенції випускника освітньої програми &laquo;Комп’ютерні технології в машинобудуванні&raquo;</h2>
-      {competences.map((section, index) => (
-        <section key={index}>
-          <h3>{section.category}</h3>
-          <ul>
-            {section.items.map((item, i) => (
-              <li key={i}>
-                <strong>{item.title}</strong>
-                <ul>
-                  {item.skills.map((skill, j) => (
-                    <li key={j}>{skill}</li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
 
-      <div className="program-info">
+ <div className="program-info">
         <h3>Навчання за спеціальністю</h3>
         <p>
           Навчання студентів за спеціальністю <strong>G11.01 Машинобудування: верстати та інструмент (МГ)</strong> 
@@ -206,6 +188,27 @@ const Speciality = () => {
         </ul>
       </div>
 
+
+      <h2>Компетенції випускника освітньої програми &laquo;Комп’ютерні технології в машинобудуванні&raquo;</h2>
+      {competences.map((section, index) => (
+        <section key={index}>
+          <h3>{section.category}</h3>
+          <ul>
+            {section.items.map((item, i) => (
+              <li key={i}>
+                <strong>{item.title}</strong>
+                <ul>
+                  {item.skills.map((skill, j) => (
+                    <li key={j}>{skill}</li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+
+     
 
 
       <div className="footer-box">
