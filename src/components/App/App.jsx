@@ -20,6 +20,7 @@ import { Achievements } from "../../pages/Achievements/Achievements.jsx";
 import { Leisure } from "../../pages/Leisure/Leisure.jsx";
 import Contacts from "../../pages/Contacts/Contacts.jsx";
 import ScrollToTop from "../../utils/ScrollToTop.jsx";
+import About from "../../pages/About/About.jsx";
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
       <NavigationMenu />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/about" element={<About />} />
         <Route path="/history" element={<History />} />
         <Route path="/team" element={<Teams />} />
         <Route path="/qualification" element={<Qualification/>} />

@@ -1,4 +1,4 @@
-import React from "react";
+import { p } from "framer-motion/client";
 import ImageSlider from "../../components/ImageSlider/ImageSlider";
 import "./Resources.scss";
 
@@ -6,39 +6,75 @@ const Resources = () => {
   const resourceData = [
     {
       title:
-        "№ 101. Лабораторія технологій створення програмних продуктів та тестування програмних систем і комплексів",
-      images: [
-        "/assets/images/cabinets/101/1.jpg",
-        "/assets/images/cabinets/101/2.jpg",
-        "/assets/images/cabinets/101/3.jpg",
-        "/assets/images/cabinets/101/4.jpg",
+        "№ 101в. Лабораторія конструкційних матеріалів, гідравлічних та пневматичних систем",
+      equipment: [
+        "Твердомір за системою Брінеля",
+        "2 оптично-електронні мікроскопи",
+        "пневмо- та гідростанції",
       ],
     },
     {
-      title: "№ 102. Кабінет алгоритмізації та програмування інформаційних систем",
-      images: [
-        "/assets/images/cabinets/102/1.png",
-        "/assets/images/cabinets/102/2.png",
-        "/assets/images/cabinets/102/3.png",
-        "/assets/images/cabinets/102/4.png",
+      title:
+        "№ 201в. Навчально-обчислювальний центр, лабораторія інженерної та комп’ютерної графіки",
+      equipment: [
+        "3D-принтер",
+        "3D-сканер",
+        "2 ПК",
+        "телевізор для трансляції навчальних відео-матеріалів",
       ],
     },
     {
-      title: "№ 104. Лабораторія організації баз даних та дипломного проектування",
-      images: [
-        "/assets/images/cabinets/104/1.jpg",
-        "/assets/images/cabinets/104/2.jpg",
-        "/assets/images/cabinets/104/3.jpg",
-        "/assets/images/cabinets/104/4.jpg",
+      title:
+        "№ 209в. Кабінет інженерної і комп’ютерної графіки, технології та обладнання 3D друку",
+      equipment: [
+        "10 ПК із ліцензійним пакетом CAD/CAM/CAE SolidWorks",
+        "зразки друкованої 3D продукції",
+        "проектор для трансляції навчальних відео-матеріалів",
       ],
     },
     {
-      title: "№ 219. Лабораторія мікропроцесорних систем та ІоТ",
-      images: [
-        "/assets/images/cabinets/219/1.jpg",
-        "/assets/images/cabinets/219/2.jpg",
-        "/assets/images/cabinets/219/3.jpg",
+      title:
+        "№ 213в. Кабінет технології машинобудування, взаємозамінності, стандартизації та технічних вимірювань",
+      equipment: [
+        "зразки кінцевих мір довжини",
+        "штангенциркулі",
+        "мікрометри",
+        "калібри",
+        "телевізор для трансляції навчальних відео-матеріалів",
       ],
+    },
+    {
+      title:
+        "№ 214в. Кабінет металорізальних верстатів та технологічного оснащення",
+      images: [
+        "/assets/images/cabinets/214v/01.jpg",
+        "/assets/images/cabinets/214v/02.jpg",
+      ],
+      equipment: [
+        "окремі вузли металорізальних верстатів",
+        "макети передач",
+        "зразки шорсткості",
+        "затискні та контрольні механізми",
+        "проектор для трансляції навчальних відео-матеріалів",
+      ],
+    },
+    {
+      title:
+        "№ 321. Кабінет-лабораторія CAD/CAE систем, САПР та САПР ТП",
+      images: [
+        "/assets/images/cabinets/321/01.jpg",
+        "/assets/images/cabinets/321/02.jpg",
+      ],
+      equipment: [
+        "12 ПК із ліцензійним пакетом CAD/CAM/CAE фірми Autodesk",
+        "2 стійки-симулятори верстатів з ЧПК американської фірми HAAS",
+        "лазерний гравер-фрезер",
+        "2 телевізори для трансляції навчальних відео-матеріалів",
+      ],
+    },
+    {
+      title: "Навчально-виробничі майстерні",
+      equipment: [],
     },
   ];
 
@@ -46,12 +82,30 @@ const Resources = () => {
     <section className="resources">
       <h2>Матеріально-технічна база ЦК</h2>
 
-      {/* {resourceData.map((resource, index) => (
+      {resourceData.map((resource, index) => (
         <div className="resource" key={index}>
           <h3>{resource.title}</h3>
-          <ImageSlider images={resource.images} />
+
+         {/* Перевіряємо наявність обладнання */}
+          {resource.equipment && resource.equipment.length > 0 && (
+            <div>
+              <p className="equipment">Обладнання:</p>
+              <ul className="equipment-list">
+                {resource.equipment.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Перевіряємо наявність фото */}
+          {resource.images && resource.images.length > 0 && (
+            <ImageSlider images={resource.images} />
+          )}
+
+ 
         </div>
-      ))} */}
+      ))}
     </section>
   );
 };

@@ -1,17 +1,18 @@
 @use "./../../css/variables" as *;
 @use "sass:color";
 
-.speciality{
+.speciality {
     line-height: 1.6;
     @extend .default-container;
     @include mobile;
-    
+
 
     h1 {
         font-size: 2rem;
     }
 
-    h1, h2 {
+    h1,
+    h2 {
         text-align: center;
     }
 
@@ -21,7 +22,8 @@
         font-size: 1.1rem;
     }
 
-    .summary-box, .footer-box {
+    .summary-box,
+    .footer-box {
         font-size: 1.1rem;
         margin: 10px 0 30px 0;
 
@@ -43,6 +45,8 @@
     section {
         @extend .shadowed-box;
         padding: 20px 40px;
+        font-size: 1.05em;
+        line-height: 1.6;
 
         h3 {
             margin-bottom: 20px;
@@ -52,7 +56,7 @@
         ul {
             line-height: 1.6;
             list-style-type: none;
-           
+
             ul {
                 margin-bottom: 10px;
                 padding-left: 20px;
@@ -62,12 +66,47 @@
                         content: "✔";
                         color: color.adjust($bg-color-main, $lightness: 0%, $space: hsl);
                     }
+
                     &::before {
                         content: "";
                         padding-left: 10px;
                     }
                 }
             }
+        }
+    }
+
+    .program-info {
+        font-size: 1.1rem;
+        margin: 20px 0 30px 0;
+        padding: 20px 40px;
+        @extend .shadowed-box;
+
+        h3 {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-top: 10px;
+        }
+
+        ul {
+            margin: 10px 0 20px 40px;
+            line-height: 1.6;
+            list-style-type: disc;
+
+          li {
+                    &::marker {
+                        content: "✔";
+                        color: color.adjust($bg-color-main, $lightness: 0%, $space: hsl);
+                    }
+
+                    &::before {
+                        content: "";
+                        padding-left: 10px;
+                    }
+                }
         }
     }
 }

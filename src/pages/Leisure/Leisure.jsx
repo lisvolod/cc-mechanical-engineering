@@ -5,48 +5,77 @@ import "./Leisure.scss";
 export const Leisure = () => {
     const imageGallery = [
         {
-            event: "Художня самодіяльність",
+            event: "Екскурсія на провідне підприємство у сфері виробництва та постачання компонентів для прес-форм та штампів - компанію КВОТА",
             images: [
-                "/assets/images/studentLeisure/art/1.png",
-                "/assets/images/studentLeisure/art/2.png",
-                "/assets/images/studentLeisure/art/3.png"
+                "/assets/images/studentLeisure/01/01.jpg",
+                "/assets/images/studentLeisure/01/02.jpg",
+                "/assets/images/studentLeisure/01/03.jpg",
+                "/assets/images/studentLeisure/01/04.jpg",
+                "/assets/images/studentLeisure/01/05.jpg",
+                "/assets/images/studentLeisure/01/06.jpg",
+                "/assets/images/studentLeisure/01/07.jpg",
+                "/assets/images/studentLeisure/01/08.jpg",
+                "/assets/images/studentLeisure/01/09.jpg",
+                "/assets/images/studentLeisure/01/10.jpg",
             ]
         },
         {
-            event: "Клуб фінансової грамотності",
+            event: "Екскурсійна поїздка до міста Теребовля",
             images: [
-                "/assets/images/studentLeisure/club/1.png",
-                "/assets/images/studentLeisure/club/2.png",
-                "/assets/images/studentLeisure/club/3.png"
+                "/assets/images/studentLeisure/02/01.jpg",
+                "/assets/images/studentLeisure/02/02.jpg",
+                "/assets/images/studentLeisure/02/03.jpg",
+                "/assets/images/studentLeisure/02/04.jpg",
+                "/assets/images/studentLeisure/02/05.jpg",
+                "/assets/images/studentLeisure/02/06.jpg",
             ]
         },
         {
-            event: "День соборності",
+            event: "Щорічні благодійні ярмарки",
             images: [
-                "/assets/images/studentLeisure/soborn/1.png",
-                "/assets/images/studentLeisure/soborn/2.png",
-                "/assets/images/studentLeisure/soborn/3.png",
-                "/assets/images/studentLeisure/soborn/4.png",
-                "/assets/images/studentLeisure/soborn/5.png"
+                "/assets/images/studentLeisure/03/01.jpg",
+                "/assets/images/studentLeisure/03/02.jpg",
+                "/assets/images/studentLeisure/03/03.png",
             ]
         },
         {
-            event: "Година КОДУ",
+            event: "Святкування тижня машинобудівних технологій",
             images: [
-                "/assets/images/studentLeisure/code/1.png",
-                "/assets/images/studentLeisure/code/2.png",
-                "/assets/images/studentLeisure/code/3.png"
+                "/assets/images/studentLeisure/07/01.png",
+                "/assets/images/studentLeisure/07/02.jpg",
+                "/assets/images/studentLeisure/07/03.png",
+                "/assets/images/studentLeisure/07/04.png",
+                "/assets/images/studentLeisure/07/05.png",
             ]
         },
         {
-            event: "Дебют друго-курсника",
+            event: "Вебінари, онлайн-зустрічі та гостьові лекції",
             images: [
-                "/assets/images/studentLeisure/debut/1.png",
-                "/assets/images/studentLeisure/debut/2.png",
-                "/assets/images/studentLeisure/debut/3.png",
-                "/assets/images/studentLeisure/debut/4.png"
+                "/assets/images/studentLeisure/11/01.png",
+                "/assets/images/studentLeisure/11/02.jpg",
+                "/assets/images/studentLeisure/11/03.png",
+                "/assets/images/studentLeisure/11/04.png",
+                "/assets/images/studentLeisure/11/05.png",
+                "/assets/images/studentLeisure/11/06.png",
             ]
         },
+        {
+            event: "Тернопільський академічний обласний український драматичний театр імені Т. Г. Шевченка",
+            images: [
+                "/assets/images/studentLeisure/13/01.jpg",
+                "/assets/images/studentLeisure/13/02.jpg",
+                "/assets/images/studentLeisure/13/03.jpg",
+            ]
+        },
+        {
+            event: "Студенти відвідали підприємство АТ «Технологія»",
+            images: [
+                "/assets/images/studentLeisure/14/01.jpg",
+                "/assets/images/studentLeisure/14/02.jpg",
+                "/assets/images/studentLeisure/14/03.jpg",
+            ]
+        },
+       
     ];
 
     return (

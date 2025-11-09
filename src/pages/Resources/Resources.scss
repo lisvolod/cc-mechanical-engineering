@@ -5,9 +5,13 @@
     @extend .default-container;
     @include mobile;
 
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+
     h2 {
         text-align: center;
-        margin-bottom: 30px;
+        // margin-bottom: 20px;
 
     }
 
@@ -15,12 +19,24 @@
         margin: 10px;
         width: 100%;
 
+
         h3 {
             text-align: left;
-            margin: 20px 0;
+            margin-bottom: 10px;
+        }
+
+        p.equipment {
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        ul {
+            padding-left: 40px;
+            font-size: 1.2em;
+            // margin: 20px;
         }
     }
-    
+
 }
 
 @media (max-width: 768px) {

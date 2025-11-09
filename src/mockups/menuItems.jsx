@@ -3,6 +3,7 @@ const menuItems = [
     {
       name: "Про ЦК",
       submenu: [
+        { name: "Про ЦК", link: "/about" },
         { name: "Історія ЦК", link: "/history" },
         { name: "Склад ЦК", link: "/team" },
         { name: "Підвищення кваліфікації", link: "/qualification" },
