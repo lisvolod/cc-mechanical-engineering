@@ -1,4 +1,3 @@
-import React from 'react';
 import './History.scss';
 
 const History = () => {
@@ -28,6 +27,14 @@ const History = () => {
             пакетів прикладних програм, програмування обробки на верстатах із
             сучасними системами числового програмного керування.
           </p>
+          <img 
+              src="/assets/images/history/01.jpg" alt="history-picture" 
+              style={{
+                width: "60%",
+                objectFit: "contain",
+                objectPosition: "center"
+              }}
+          />
           <p className="history__text">
             Підготовку фахівців за спеціальністю "Обробка матеріалів на верстатах і
             автоматичних лініях" здійснювали викладачі циклової комісії механічних
