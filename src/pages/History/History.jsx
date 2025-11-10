@@ -98,7 +98,7 @@ const History = () => {
         </div>
       </div>
 
-      <div className="history__section">
+      {/* <div className="history__section">
         <h3 className="history__subtitle">Сучасний етап розвитку</h3>
         <div className="history__subsection">
           <p className="history__text">
@@ -108,7 +108,7 @@ const History = () => {
             У 2021 році циклову комісію "Програмних систем та комплексів" було перейменовано на циклову комісію "Комп’ютерних наук", що відповідає сучасним вимогам до підготовки ІТ-фахівців.
           </p>
         </div>
-      </div>
+      </div> */}
 
       <div className="history__section">
         <h3 className="history__subtitle">Сьогодення</h3>
