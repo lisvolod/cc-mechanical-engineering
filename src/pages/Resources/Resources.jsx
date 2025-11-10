@@ -22,6 +22,7 @@ const Resources = () => {
         "2 ПК",
         "телевізор для трансляції навчальних відео-матеріалів",
       ],
+      kuulaLink: "https://kuula.co/share/hGBc3/collection/7bhdt?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1",
     },
     {
       title:
@@ -99,8 +100,24 @@ const Resources = () => {
           )}
 
           {/* Перевіряємо наявність фото */}
-          {resource.images && resource.images.length > 0 && (
+          {/* {resource.images && resource.images.length > 0 && (
             <ImageSlider images={resource.images} />
+          )} */}
+
+         {/* Фото або Kuula або default */}
+          {resource.images && resource.images.length > 0 ? (
+            <ImageSlider images={resource.images} />
+          ) : resource.kuulaLink ? (
+            <div className="kuula-frame">
+              <iframe
+                src={resource.kuulaLink}
+                allowFullScreen
+                loading="lazy"
+                title={resource.title}
+              ></iframe>
+            </div>
+          ) : ( <></>
+            // <img src="/assets/images/default.jpg" alt="default" className="default-img" />
           )}
 
  
