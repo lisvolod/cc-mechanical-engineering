@@ -1,7 +1,0 @@
-@use "./../../css/variables" as *;
-
-.section-container {
-    @extend .default-container;
-    @include mobile;
-
-}

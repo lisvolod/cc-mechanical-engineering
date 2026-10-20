@@ -44,7 +44,7 @@ const teamMembers = [
     ],
     position: "Викладач механічних дисциплін.",
     category: "Спеціаліст вищої категорії, кандидат технічних наук.",
-    photo: "/assets/images/teams/kobelnyk.png",
+    photo: "/assets/images/teams/kobelnyk.jpg",
     email: "oks.kobelnyk@gmail.com"
   },
   {
@@ -67,7 +67,7 @@ const teamMembers = [
     ],
     position: "Викладач механічних дисциплін.",
     category: "Спеціаліст.",
-    photo: "/assets/images/teams/tsiupa.png",
+    photo: "/assets/images/teams/tsiupa.jpg",
     email: "s.tsiupa@tk.te.ua"
   }
 ];

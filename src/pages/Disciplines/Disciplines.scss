@@ -4,8 +4,129 @@
 .section-container {
     @extend .default-container;
     @include mobile;
+}
 
-    .sub-section:nth-of-type(2) {
-        margin-top: 40px;
+.disciplines {
+    .title {
+        text-align: center;
+    }
+
+    &__intro {
+        max-width: 800px;
+        margin: 0 auto 24px;
+        text-align: center;
+        font-size: 1.1em;
+    }
+
+    &__search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 10px 16px;
+        background: #fff;
+        border: 2px solid color.adjust($bg-color-main, $lightness: 45%, $space: hsl);
+        border-radius: 10px;
+        color: $bg-color-main;
+        transition: border-color .2s;
+
+        &:focus-within {
+            border-color: $bg-color-main;
+        }
+
+        input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            font: inherit;
+            font-size: 1.05em;
+            color: $text-color;
+        }
+    }
+
+    &__count {
+        text-align: center;
+        margin: 10px 0 20px;
+        font-size: .95em;
+        opacity: .75;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 14px;
+    }
+
+    &__item {
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+        background: #fff;
+        border-radius: 10px;
+        border-left: 4px solid $bg-color-main;
+        box-shadow: $box-shadow;
+        color: $text-color;
+        text-decoration: none;
+        transition: transform .2s, box-shadow .2s, background .2s;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.25);
+            background: color.adjust($bg-color-main, $lightness: 55%, $space: hsl);
+
+            .disciplines__external {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        color: $bg-color-main;
+    }
+
+    &__name {
+        flex: 1;
+        font-weight: 500;
+        line-height: 1.35;
+    }
+
+    &__external {
+        flex-shrink: 0;
+        color: $bg-color-main;
+        opacity: .4;
+        transition: opacity .2s;
+    }
+
+    &__empty {
+        text-align: center;
+        font-size: 1.1em;
+        margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+        &__list {
+            grid-template-columns: 1fr;
+        }
     }
 }
+
+// @use "./../../css/variables" as *;
+// @use "sass:color";
+
+// .section-container {
+//     @extend .default-container;
+//     @include mobile;
+
+//     .sub-section:nth-of-type(2) {
+//         margin-top: 40px;
+//     }
+// }

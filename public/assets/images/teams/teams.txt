@@ -1,0 +1,17 @@
+ Volume in drive D is SSD_Samsung_EVO_870_500GB
+ Volume Serial Number is D2FA-67E2
+
+ Directory of d:\Cycling_commisions_sites\mb\public\assets\images\teams
+
+21.10.2026  02:09    <DIR>          .
+10.11.2025  02:13    <DIR>          ..
+31.01.2025  20:57            14ÿ817 default.png
+07.11.2025  03:31            59ÿ149 gavryschchuk.jpg
+07.11.2025  03:33            15ÿ804 genyk.jpg
+07.11.2025  03:20            26ÿ357 kashuba.jpg
+07.11.2025  03:34           589ÿ531 kobelnyk.png
+21.10.2026  02:09                 0 teams.txt
+07.11.2025  03:35           925ÿ459 tsiupa.png
+07.11.2025  03:35            26ÿ944 voloshyn.jpg
+               8 File(s)      1ÿ658ÿ061 bytes
+               2 Dir(s)  486ÿ183ÿ550ÿ976 bytes free
