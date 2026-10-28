@@ -1,7 +1,462 @@
 @use "./../../css/variables" as *;
 @use "sass:color";
 
+$light: color.adjust($bg-color-main, $lightness: 55%, $space: hsl);
+$border: color.adjust($bg-color-main, $lightness: 45%, $space: hsl);
+
 .section-container {
     @extend .default-container;
     @include mobile;
+}
+
+.diploma {
+    .title {
+        text-align: center;
+    }
+
+    h3, h4, p {
+        margin: 0;
+    }
+
+    ul, ol {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__intro {
+        max-width: 860px;
+        margin: 0 auto 30px !important;
+        text-align: center;
+        font-size: 1.1em;
+    }
+
+    &__subtitle {
+        margin: 44px 0 20px !important;
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+    // ---------- Методичка ----------
+    &__guide {
+        @extend .shadowed-box;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        border-left: 6px solid $bg-color-main;
+
+        h3 {
+            font-size: 1.3em;
+            margin-bottom: 4px;
+        }
+    }
+
+    &__guide-icon {
+        flex-shrink: 0;
+        width: 90px;
+        height: 110px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        border-radius: 10px;
+        background: #fdecec;
+        color: #c62828;
+        font-weight: 700;
+        letter-spacing: .05em;
+    }
+
+    &__guide-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__guide-authors {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 4px !important;
+
+        svg {
+            flex-shrink: 0;
+            color: $bg-color-main;
+        }
+    }
+
+    &__guide-meta {
+        font-size: .9em;
+        opacity: .7;
+    }
+
+    &__guide-actions {
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 18px;
+            border: 2px solid $bg-color-main;
+            border-radius: 8px;
+            background: $bg-color-main;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background .2s;
+
+            &:hover {
+                background: color.adjust($bg-color-main, $lightness: 10%, $space: hsl);
+            }
+
+            &.is-secondary {
+                background: transparent;
+                color: $bg-color-main;
+
+                &:hover {
+                    background: $light;
+                }
+            }
+        }
+    }
+
+    // ---------- Ключові показники ----------
+    &__facts {
+        margin-top: 30px !important;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        padding: 24px !important;
+        border-radius: 16px;
+        background: $bg-color-navbar;
+        color: #fff;
+        box-shadow: $box-shadow;
+
+        li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        strong {
+            font-size: 2.2em;
+            line-height: 1.1;
+        }
+    }
+
+    &__facts-unit {
+        font-weight: 600;
+    }
+
+    &__facts-label {
+        margin-top: 4px;
+        font-size: .9em;
+        opacity: .85;
+    }
+
+    // ---------- Шлях до захисту ----------
+    &__roadmap {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 12px;
+        position: relative;
+
+        // лінія через кружечки
+        &::before {
+            content: "";
+            position: absolute;
+            top: 21px;
+            left: 7%;
+            right: 7%;
+            height: 4px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, $border, $bg-color-main);
+        }
+
+        li {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+        }
+
+        h4 {
+            font-size: 1em;
+            line-height: 1.25;
+        }
+
+        p {
+            font-size: .88em;
+            line-height: 1.45;
+        }
+
+        li:last-child .diploma__roadmap-num {
+            background: #1e7a3c;
+        }
+    }
+
+    &__roadmap-num {
+        z-index: 1;
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: $bg-color-main;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.15em;
+        box-shadow: 0 0 0 5px #efefef;
+    }
+
+    // ---------- Дві колонки ----------
+    &__columns {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 36px;
+        align-items: start;
+    }
+
+    &__note {
+        margin-top: 12px !important;
+        font-size: .92em;
+        opacity: .8;
+    }
+
+    // Акордеон структури ПЗ
+    &__structure {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        > li {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: $box-shadow;
+            overflow: hidden;
+
+            &.is-open {
+                button svg {
+                    transform: rotate(180deg);
+                }
+            }
+
+            > ul {
+                padding: 4px 20px 16px 66px;
+
+                li {
+                    position: relative;
+                    padding: 4px 0;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: -16px;
+                        top: 14px;
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        background: $bg-color-main;
+                    }
+                }
+            }
+        }
+
+        button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            border: none;
+            background: none;
+            color: $header-color;
+            font: inherit;
+            font-weight: 600;
+            font-size: 1.05em;
+            text-align: left;
+            cursor: pointer;
+
+            &:hover {
+                background: $light;
+            }
+
+            svg {
+                flex-shrink: 0;
+                transition: transform .2s;
+            }
+        }
+    }
+
+    &__structure-num {
+        flex-shrink: 0;
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        background: $light;
+        color: $bg-color-main;
+        font-weight: 700;
+    }
+
+    &__structure-title {
+        flex: 1;
+    }
+
+    // Графічна частина
+    &__drawings {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: $box-shadow;
+
+            svg {
+                flex-shrink: 0;
+                color: $bg-color-main;
+            }
+
+            span:nth-child(2) {
+                flex: 1;
+            }
+        }
+    }
+
+    &__format {
+        padding: 2px 10px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: .9em;
+
+        &--a1 {
+            background: $bg-color-main;
+            color: #fff;
+        }
+
+        &--a2 {
+            background: $light;
+            color: $bg-color-main;
+        }
+    }
+
+    // Документи
+    &__docs {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            svg {
+                flex-shrink: 0;
+                color: #1e7a3c;
+            }
+        }
+    }
+
+    &__result {
+        margin: 44px auto 0 !important;
+        max-width: 760px;
+        padding: 18px 24px;
+        border-radius: 12px;
+        background: #e3f5e9;
+        color: #1e5b33;
+        text-align: center;
+        font-size: 1.08em;
+    }
+
+    // ---------- Адаптив ----------
+    @media (max-width: 1100px) {
+        &__roadmap {
+            grid-template-columns: 1fr;
+            gap: 0;
+            max-width: 560px;
+            margin: 0 auto !important;
+
+            &::before {
+                top: 20px;
+                bottom: 20px;
+                left: 21px;
+                right: auto;
+                width: 4px;
+                height: auto;
+                background: linear-gradient($border, $bg-color-main);
+            }
+
+            li {
+                display: grid;
+                grid-template-columns: 46px 1fr;
+                column-gap: 16px;
+                row-gap: 2px;
+                text-align: left;
+                align-items: start;
+                padding-bottom: 18px;
+            }
+
+            .diploma__roadmap-num {
+                grid-row: span 2;
+            }
+
+            h4 {
+                padding-top: 10px;
+            }
+        }
+
+        &__facts {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 900px) {
+        &__columns {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        &__guide {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        &__guide-authors {
+            justify-content: center;
+        }
+
+        &__guide-actions {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 500px) {
+        &__facts {
+            grid-template-columns: 1fr;
+        }
+
+        &__structure > li > ul {
+            padding-left: 40px;
+        }
+    }
 }

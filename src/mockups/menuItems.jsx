@@ -25,7 +25,7 @@ const menuItems = [
         { name: "Дисципліни (силабуси)", link: "/disciplines" },
         { name: "Дисципліни за вибором здобувача освіти", link: "/chosen" },
         { name: "Методичні рекомендації до КР", link: "/kr-methodology" },
-        { name: "Виконання кваліфікаційної роботи у вигляді ДП", link: "/dp-methodology" },
+        { name: "Виконання кваліфікаційної роботи", link: "/dp-methodology" },
         { name: "Практики", link: "/practices" },
       ],
     },

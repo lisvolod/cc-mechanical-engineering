@@ -1,27 +1,277 @@
 @use "./../../css/variables" as *;
 @use "sass:color";
 
+$light: color.adjust($bg-color-main, $lightness: 55%, $space: hsl);
+$border: color.adjust($bg-color-main, $lightness: 45%, $space: hsl);
+
 .stakeholders {
     @extend .default-container;
     @include mobile;
 
-    h1 {
+    h1, h2 {
         text-align: center;
     }
 
-    h2, h3 {
-        margin-top: 30px;
+    h2 {
+        margin: 50px 0 10px;
+    }
+
+    h3 {
+        margin: 0;
     }
 
     p {
-        font-size: 1.1em;
+        margin: 0;
     }
+
     ul {
-        padding-left: 40px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__intro {
+        max-width: 860px;
+        margin: 0 auto 30px !important;
+        text-align: center;
         font-size: 1.1em;
     }
 
-    .event {
-        margin-bottom: 40px;
+    // ---------- Статистика ----------
+    &__stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 24px !important;
+        border-radius: 16px;
+        background: $bg-color-navbar;
+        color: #fff;
+        box-shadow: $box-shadow;
+
+        li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 4px;
+        }
+
+        strong {
+            font-size: 2.4em;
+            line-height: 1.1;
+        }
+
+        span {
+            opacity: .9;
+        }
+    }
+
+    // ---------- Форми співпраці (фільтр) ----------
+    &__hint {
+        text-align: center;
+        margin-bottom: 20px !important;
+        opacity: .75;
+    }
+
+    &__forms {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    &__form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 22px 18px;
+        border: 2px solid transparent;
+        border-radius: 12px;
+        background: $light;
+        color: $text-color;
+        font: inherit;
+        text-align: center;
+        cursor: pointer;
+        transition: transform .2s, border-color .2s, background .2s;
+
+        &:hover {
+            transform: translateY(-3px);
+            border-color: $border;
+        }
+
+        p {
+            flex: 1;
+            font-size: .95em;
+        }
+
+        &.is-active {
+            background: $bg-color-main;
+            border-color: $bg-color-main;
+            color: #fff;
+
+            h3, .stakeholders__form-icon {
+                color: #fff;
+            }
+
+            .stakeholders__form-count {
+                background: #fff;
+                color: $bg-color-main;
+            }
+        }
+    }
+
+    &__form-icon {
+        color: $bg-color-main;
+    }
+
+    &__form-count {
+        padding: 2px 12px;
+        border-radius: 20px;
+        background: $bg-color-main;
+        color: #fff;
+        font-size: .85em;
+        font-weight: 600;
+    }
+
+    // ---------- Список партнерів ----------
+    &__list-head {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 24px;
+    }
+
+    &__reset {
+        padding: 6px 16px;
+        border: 2px solid $bg-color-main;
+        border-radius: 8px;
+        background: transparent;
+        color: $bg-color-main;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+            background: $bg-color-main;
+            color: #fff;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 22px;
+    }
+
+    &__card {
+        @extend .shadowed-box;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        border-top: 5px solid $bg-color-main;
+
+        h3 {
+            font-size: 1.2em;
+            line-height: 1.3;
+        }
+    }
+
+    &__contact {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+        font-size: .95em;
+        flex: 1;
+
+        svg {
+            flex-shrink: 0;
+            margin-top: 3px;
+            color: $bg-color-main;
+        }
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    &__tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 3px 10px;
+        border-radius: 20px;
+        background: $light;
+        color: $bg-color-main;
+        font-size: .82em;
+        font-weight: 500;
+    }
+
+    &__contract {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        padding-top: 12px;
+        border-top: 1px solid $border;
+        font-size: .9em;
+    }
+
+    &__badge {
+        padding: 2px 10px;
+        border-radius: 6px;
+        background: #eceff3;
+        color: #4a5563;
+        font-weight: 600;
+        font-size: .9em;
+
+        &--ok {
+            background: #e3f5e9;
+            color: #1e7a3c;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: 8px;
+            background: $bg-color-main;
+            color: #fff;
+            text-decoration: none;
+            font-size: .9em;
+            font-weight: 600;
+            transition: background .2s;
+
+            &:hover {
+                background: color.adjust($bg-color-main, $lightness: 10%, $space: hsl);
+            }
+        }
+    }
+
+    // ---------- Адаптив ----------
+    @media (max-width: 1024px) {
+        &__forms {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        &__stats,
+        &__forms,
+        &__list {
+            grid-template-columns: 1fr;
+        }
     }
 }
