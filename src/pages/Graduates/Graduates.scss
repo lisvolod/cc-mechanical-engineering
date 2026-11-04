@@ -62,3 +62,75 @@
 
     }
 }
+// Підзаголовок секції «Відомі випускники»
+.graduates .graduates__subtitle {
+    text-align: center;
+    margin: 30px 0 0;
+    font-size: 1.4em;
+}
+
+
+// @use "./../../css/variables" as *;
+// @use "sass:color";
+
+// .graduates {
+//     @extend .default-container;
+//     @include mobile;
+
+//     h2 {
+//         text-align: center;
+//     }
+
+//     h3 {
+//         margin: 20px;
+//         font-size: 1.3em;
+//     }
+
+//     .graduates-list {
+//         display: grid;
+//         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+//         gap: 20px;
+//         padding: 20px;
+//     }
+
+//     .graduate-card {
+//         background-color: #f9f9f9;
+//         text-align: center;
+//         border-radius: 10px;
+//         padding: 15px;
+//         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//         transition:  0.2s;
+
+//         h4 {
+//             margin-bottom: 10px;
+//         }
+
+//         .image-container {
+//             width: 140px;
+//             height: 140px;
+//             border-radius: 50%;
+//             box-shadow: 0 0 12px rgba(0,0,0,0.5);
+//             overflow: hidden;
+//             margin: 10px auto;
+//             border: 3px solid #eee;
+
+//             img {
+//                 width: 100%;
+//                 height: 100%;
+//                 object-fit: cover;
+//                 transition: 0.2s;
+//             }
+//         }
+
+//         &:hover {
+//             transform: translateY(-2px);
+//             box-shadow: 0 4px 8px 1px rgba(0, 0, 0, 0.3);
+//             .image-container {
+//                 img {
+//                     transform: scale(1.1);
+//                 }
+//             }
+//         }
+
+//     }
+// }
