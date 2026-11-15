@@ -1,128 +1,154 @@
-import { p } from "framer-motion/client";
-import ImageSlider from "../../components/ImageSlider/ImageSlider";
+import React, { useState } from "react";
+import {
+  Bot, Building2, ChevronDown, Cpu, DoorOpen, Factory, Gauge, Globe,
+  MapPin, Monitor, Printer, Ruler, Wrench,
+} from "lucide-react";
+import RoomGallery from "./RoomGallery";
+import {
+  resources, resourceTypes, resourceHighlights, resourceAddress,
+} from "../../mockups/resources";
 import "./Resources.scss";
 
+const highlightIcons = { cnc: Cpu, bot: Bot, factory: Factory, gauge: Gauge, printer: Printer, monitor: Monitor };
+const EQUIPMENT_PREVIEW = 6;
+
+const formatArea = (area) => `${String(area).replace(".", ",")} м²`;
+
+const RoomCard = ({ room }) => {
+  const [showAll, setShowAll] = useState(false);
+  const equipment = showAll ? room.equipment : room.equipment.slice(0, EQUIPMENT_PREVIEW);
+  const hidden = room.equipment.length - EQUIPMENT_PREVIEW;
+
+  return (
+    <article className="room" id={room.id}>
+      <RoomGallery photos={room.photos} title={room.title} />
+
+      <div className="room__info">
+        <div className="room__badges">
+          {room.number && <span className="room__number">№ {room.number}</span>}
+          {room.area && (
+            <span className="room__area"><Ruler size={15} aria-hidden="true" /> {formatArea(room.area)}</span>
+          )}
+        </div>
+
+        <h3>{room.title}</h3>
+        {room.description && <p className="room__description">{room.description}</p>}
+
+        {room.equipment.length > 0 && (
+          <>
+            <h4><Wrench size={17} aria-hidden="true" /> Обладнання</h4>
+            <ul className="room__equipment">
+              {equipment.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+            {hidden > 0 && (
+              <button
+                type="button"
+                className={`room__more${showAll ? " is-open" : ""}`}
+                onClick={() => setShowAll(!showAll)}
+              >
+                {showAll ? "Згорнути" : `Показати все (+${hidden})`}
+                <ChevronDown size={16} aria-hidden="true" />
+              </button>
+            )}
+          </>
+        )}
+
+        {room.software.length > 0 && (
+          <>
+            <h4><Monitor size={17} aria-hidden="true" /> Програмне забезпечення</h4>
+            <ul className="room__chips room__chips--software">
+              {room.software.map((s) => <li key={s}>{s}</li>)}
+              {room.internet && <li className="is-internet"><Globe size={13} aria-hidden="true" /> Доступ до Інтернету</li>}
+            </ul>
+          </>
+        )}
+
+        {room.disciplines.length > 0 && (
+          <>
+            <h4><DoorOpen size={17} aria-hidden="true" /> Заняття з дисциплін</h4>
+            <ul className="room__chips">
+              {room.disciplines.map((d) => <li key={d}>{d}</li>)}
+            </ul>
+          </>
+        )}
+      </div>
+    </article>
+  );
+};
+
 const Resources = () => {
-  const resourceData = [
-    {
-      title:
-        "№ 101в. Лабораторія конструкційних матеріалів, гідравлічних та пневматичних систем",
-      equipment: [
-        "Твердомір за системою Брінеля",
-        "2 оптично-електронні мікроскопи",
-        "пневмо- та гідростанції",
-      ],
-    },
-    {
-      title:
-        "№ 201в. Навчально-обчислювальний центр, лабораторія інженерної та комп’ютерної графіки",
-      equipment: [
-        "3D-принтер",
-        "3D-сканер",
-        "2 ПК",
-        "телевізор для трансляції навчальних відео-матеріалів",
-      ],
-      kuulaLink: "https://kuula.co/share/hGBc3/collection/7bhdt?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1",
-    },
-    {
-      title:
-        "№ 209в. Кабінет інженерної і комп’ютерної графіки, технології та обладнання 3D друку",
-      equipment: [
-        "10 ПК із ліцензійним пакетом CAD/CAM/CAE SolidWorks",
-        "зразки друкованої 3D продукції",
-        "проектор для трансляції навчальних відео-матеріалів",
-      ],
-    },
-    {
-      title:
-        "№ 213в. Кабінет технології машинобудування, взаємозамінності, стандартизації та технічних вимірювань",
-      equipment: [
-        "зразки кінцевих мір довжини",
-        "штангенциркулі",
-        "мікрометри",
-        "калібри",
-        "телевізор для трансляції навчальних відео-матеріалів",
-      ],
-    },
-    {
-      title:
-        "№ 214в. Кабінет металорізальних верстатів та технологічного оснащення",
-      images: [
-        "/assets/images/cabinets/214v/01.jpg",
-        "/assets/images/cabinets/214v/02.jpg",
-      ],
-      equipment: [
-        "окремі вузли металорізальних верстатів",
-        "макети передач",
-        "зразки шорсткості",
-        "затискні та контрольні механізми",
-        "проектор для трансляції навчальних відео-матеріалів",
-      ],
-    },
-    {
-      title:
-        "№ 321. Кабінет-лабораторія CAD/CAE систем, САПР та САПР ТП",
-      images: [
-        "/assets/images/cabinets/321/01.jpg",
-        "/assets/images/cabinets/321/02.jpg",
-      ],
-      equipment: [
-        "12 ПК із ліцензійним пакетом CAD/CAM/CAE фірми Autodesk",
-        "2 стійки-симулятори верстатів з ЧПК американської фірми HAAS",
-        "лазерний гравер-фрезер",
-        "2 телевізори для трансляції навчальних відео-матеріалів",
-      ],
-    },
-    {
-      title: "Навчально-виробничі майстерні",
-      equipment: [],
-    },
+  const [filter, setFilter] = useState("all");
+
+  const filtered = filter === "all" ? resources : resources.filter((r) => r.type === filter);
+  const totalArea = resources.reduce((sum, r) => sum + (r.area ?? 0), 0);
+
+  const stats = [
+    { value: resources.length, label: "кабінетів, лабораторій і майстерень" },
+    { value: `${Math.round(totalArea)} м²`, label: "навчальних площ" },
+    { value: 27, label: "комп’ютерів у спеціалізованих кабінетах" },
+    { value: 2, label: "роботи — колаборативний і промисловий" },
   ];
+
+  const scrollToRoom = (id) => {
+    setFilter("all");
+    // даємо React перемалювати список, потім прокручуємо
+    setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+  };
 
   return (
     <section className="resources">
       <h2>Матеріально-технічна база ЦК</h2>
+      <p className="resources__intro">
+        Підготовка фахівців з машинобудування забезпечується сучасними кабінетами,
+        лабораторіями та майстернями: від комп’ютерного проєктування і програмування
+        верстатів з ЧПК до 3D-друку, робототехніки та практичної металообробки.
+      </p>
+      <p className="resources__address">
+        <MapPin size={16} aria-hidden="true" /> {resourceAddress}
+      </p>
 
-      {resourceData.map((resource, index) => (
-        <div className="resource" key={index}>
-          <h3>{resource.title}</h3>
+      <ul className="resources__stats">
+        {stats.map((s) => (
+          <li key={s.label}><strong>{s.value}</strong><span>{s.label}</span></li>
+        ))}
+      </ul>
 
-         {/* Перевіряємо наявність обладнання */}
-          {resource.equipment && resource.equipment.length > 0 && (
-            <div>
-              <p className="equipment">Обладнання:</p>
-              <ul className="equipment-list">
-                {resource.equipment.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          )}
+      <h3 className="resources__subtitle">Сучасне обладнання</h3>
+      <ul className="resources__highlights">
+        {resourceHighlights.map((h) => {
+          const Icon = highlightIcons[h.icon] ?? Building2;
+          return (
+            <li key={h.title}>
+              <button type="button" onClick={() => scrollToRoom(h.room)}>
+                <Icon className="resources__highlight-icon" size={30} aria-hidden="true" />
+                <strong>{h.title}</strong>
+                <span>{h.text}</span>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
 
-          {/* Перевіряємо наявність фото */}
-          {/* {resource.images && resource.images.length > 0 && (
-            <ImageSlider images={resource.images} />
-          )} */}
+      <h3 className="resources__subtitle">Приміщення</h3>
+      <div className="resources__filter" role="tablist">
+        {[["all", "Усі"], ...Object.entries(resourceTypes)].map(([key, label]) => (
+          <button
+            key={key}
+            type="button"
+            role="tab"
+            aria-selected={filter === key}
+            className={filter === key ? "is-active" : ""}
+            onClick={() => setFilter(key)}
+          >
+            {label}
+            <span>{key === "all" ? resources.length : resources.filter((r) => r.type === key).length}</span>
+          </button>
+        ))}
+      </div>
 
-         {/* Фото або Kuula або default */}
-          {resource.images && resource.images.length > 0 ? (
-            <ImageSlider images={resource.images} />
-          ) : resource.kuulaLink ? (
-            <div className="kuula-frame">
-              <iframe
-                src={resource.kuulaLink}
-                allowFullScreen
-                loading="lazy"
-                title={resource.title}
-              ></iframe>
-            </div>
-          ) : ( <></>
-            // <img src="/assets/images/default.jpg" alt="default" className="default-img" />
-          )}
-
- 
-        </div>
-      ))}
+      <div className="resources__list">
+        {filtered.map((room) => <RoomCard room={room} key={room.id} />)}
+      </div>
     </section>
   );
 };
