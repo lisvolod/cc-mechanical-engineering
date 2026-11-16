@@ -22,7 +22,7 @@ const teamMembers = [
     position: "Голова циклової комісії, викладач механічних дисциплін.",
     category: "Спеціаліст вищої категорії, кандидат технічних наук.",
     photo: "/assets/images/teams/genyk.jpg",
-    email: "inko_tihiy@tk.te.ua"
+    email: "ihor.henyk.tk@gmail.com"
   },
   {
     name: "Гаврищук Ірина Василівна",
