@@ -38,6 +38,7 @@ const disciplines = [
   { name: "Фізичне виховання", url: "https://eguru1.tk.te.ua/course/view.php?id=639" },
   { name: "Взаємозамінність, стандартизація та технічні вимірювання", url: "https://eguru1.tk.te.ua/course/view.php?id=761" },
   { name: "Інформаційні технології", url: "https://eguru1.tk.te.ua/course/view.php?id=655" },
+  { name: "Основи національного спротиву", url: "https://eguru1.tk.te.ua/enrol/index.php?id=1651" },
 ];
 
 export default disciplines;
