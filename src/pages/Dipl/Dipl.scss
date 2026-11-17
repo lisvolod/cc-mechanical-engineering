@@ -30,6 +30,9 @@ $border: color.adjust($bg-color-main, $lightness: 45%, $space: hsl);
         text-align: center;
         font-size: 1.1em;
     }
+    &__title {
+            color: $bg-color-main;
+        }
 
     &__subtitle {
         margin: 44px 0 20px !important;
